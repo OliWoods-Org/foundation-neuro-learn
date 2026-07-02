@@ -1,6 +1,6 @@
 <p align="center">
   <h1 align="center">foundation-neuro-learn</h1>
-  <h3 align="center"><em>Neurodivergent learning support.</em></h3>
+  <h3 align="center"><em>Neurodivergent learning support. Dyslexia, ADHD, autism tools. 1 in 5 people.</em></h3>
 </p>
 
 <p align="center">
@@ -13,52 +13,57 @@
 
 ---
 
-> Neurodivergent learning support. Dyslexia, ADHD, autism tools. Content adaptation. IEP assistance. 1 in 5 people are neurodivergent.
+> *"1 in 5 people is neurodivergent. Most of them spent years in classrooms believing they were broken. They weren't — the system was built for a different kind of brain."*
 
-## Why This Is the Best Tool on the Market
+## Why This Exists
 
-No commercial alternative combines our breadth of AI-powered features with zero cost. Most tools in this space either don't exist, charge hundreds per month, or are limited to institutional users.
+Neurodivergent learners — those with dyslexia, ADHD, autism spectrum conditions, dyscalculia, and processing differences — are not less intelligent. They are differently intelligent. Standard educational tools were built by neurotypical designers for neurotypical learners, creating a system that fails 20% of students at the starting line.
 
-**We built this because the problem is too important to be behind a paywall.**
+- **1 in 5 people** (roughly 20% of the global population) is neurodivergent in some form (Harvard Medical School, 2021)
+- **80% of dyslexic learners** are never diagnosed in K-12 settings, leaving them without support for decades (Yale Center for Dyslexia & Creativity)
+- **ADHD affects 5-10% of children** globally, yet fewer than 20% of affected students receive evidence-based academic accommodations (CDC, 2022)
+- **Autistic adults** face a 78% unemployment or underemployment rate (Autism Society of America) — a crisis rooted in educational failure, not capability
 
-### vs. Commercial Alternatives
+Every feature in this project was designed by asking: "What does this learner actually need?" — not "What's easiest to build?"
 
-| Feature | foundation-neuro-learn | Commercial Alt. |
-|---------|---------|-----------------|
-| Price | **Free forever** | $50-500/month |
-| AI-Powered | **Yes** | Limited or none |
-| Open Source | **Yes** | No |
-| Offline Mode | **Yes** | No |
-| Privacy-First | **No data sold** | Data monetized |
-| Multi-Language | **15+ languages** | English only |
-| Community | **Peer network** | No community |
+## System Architecture
+
+```mermaid
+flowchart TD
+    A[Learner] --> B[Intake Assessment\nLearning Style + Profile]
+    B --> C{Neurodivergence Profile\nDyslexia / ADHD / Autism\nDyscalculia / Mixed}
+    C --> D[Dyslexia Module\nFont adaptation, phonics,\ntext-to-speech, chunking]
+    C --> E[ADHD Module\nMicro-tasks, timers,\nreward scaffolding, focus mode]
+    C --> F[Autism Module\nPredictable structure,\nsensory-safe UI, literal language]
+    C --> G[Dyscalculia Module\nVisual math, spatial anchoring,\nnumber-line tools]
+    D & E & F & G --> H[Adaptive Session Engine\nClaude API — adjusts in real time]
+    H --> I[Progress + Mastery Map\nStrength-based reporting]
+    I --> J[Parent / Educator View\nIEP-aligned reports + alerts]
+    I --> K[(Supabase\nProfile + Session Store)]
+    K --> L[Offline Sync\nEdge Functions]
+```
 
 ## Features
 
-### Domain-Specific AI Tools
-Neurodivergent learning support. Dyslexia, ADHD, autism tools. Content adaptation. IEP assistance. 1 in 5 people are neurodivergent.
+| Feature | Description | Research Basis |
+|---------|-------------|----------------|
+| **Dyslexia-Optimized Reading** | OpenDyslexic font, phonemic decoding, syllable chunking, TTS with word tracking | Orton-Gillingham method |
+| **ADHD Focus Engine** | Micro-task breakdown, Pomodoro-style timers, dopamine-reward pacing, distraction-free mode | Barkley Executive Function Model |
+| **Autism-Safe UI** | Predictable navigation, literal language, sensory-friendly color palettes, no sudden animations | ABA + PBIS frameworks |
+| **Dyscalculia Visuals** | Number-line anchoring, spatial math tools, color-coded place value | Response to Intervention (RtI) |
+| **Strength Mapping** | Progress shown as strengths gained, not deficits counted | Positive Psychology / UDL |
+| **IEP Report Generation** | Auto-formatted reports aligned to IDEA / Section 504 requirements | IDEA 2004 |
+| **Multi-Modal Input** | Voice, touch, keyboard, or switch-access input supported | WCAG 2.1 AA + AAA |
+| **No Time Pressure** | All sessions untimed by default; pacing fully learner-controlled | Cognitive Load Theory |
 
-### Core Platform Features
-- **Smart Alert System** -- Multi-channel notifications (SMS, email, push, WhatsApp, Slack) with severity-based routing and escalation
-- **Analytics Engine** -- Real-time metric tracking, trend analysis, forecasting, and auto-generated impact reports
-- **Community Network** -- Peer matching, mentorship, resource sharing, and moderated community forums
-- **Offline-First** -- Works without internet connection. Essential for underserved communities
-- **Multi-Language** -- 15+ languages supported with cultural adaptation
-- **Privacy-First** -- No data sold. No tracking. No ads. Ever.
+## Research Foundation
 
-## Architecture
-
-```
-+-------------------------------------------------+
-|                  foundation-neuro-learn                        |
-+-------------------------------------------------+
-|  Smart Alerts | Analytics | Community Network   |
-+-------------------------------------------------+
-|        Domain-Specific Feature Modules           |
-+-------------------------------------------------+
-|  MAMA Platform  |  Supabase  |  Edge Functions  |
-+-------------------------------------------------+
-```
+| Citation | Finding | Relevance |
+|----------|---------|-----------|
+| Yale Center for Dyslexia (2022) | Intensive phonemic intervention closes 80% of reading gaps | Dyslexia module design |
+| Barkley, R.A. (2020) | ADHD is a disorder of executive function, not attention or motivation | ADHD feature architecture |
+| Lord et al. (2022) | Predictability and structure are the highest-impact classroom interventions for autism | Autism module UX |
+| CAST (2023) | Universal Design for Learning increases achievement for ALL students, not just disabled | Core architecture principle |
 
 ## Quick Start
 
@@ -75,11 +80,12 @@ npm run dev
 - **Validation:** Zod schemas
 - **Database:** Supabase (PostgreSQL)
 - **AI:** Claude API / local LLM (offline mode)
+- **Accessibility:** WCAG 2.1 AA + AAA, ARIA, switch-access compatible
 - **Alerts:** Twilio (SMS/WhatsApp), Resend (email)
 
 ## Contributing
 
-We welcome contributions! This is open source because we believe in community-driven solutions.
+We especially welcome contributions from neurodivergent developers, educators, special ed teachers, and occupational therapists. Lived experience is a qualification here.
 
 1. Fork the repo
 2. Create a feature branch (`git checkout -b feat/amazing-feature`)
@@ -88,11 +94,11 @@ We welcome contributions! This is open source because we believe in community-dr
 
 ## License
 
-AGPL-3.0 -- Free to use, modify, and distribute.
+AGPL-3.0 — Free to use, modify, and distribute.
 
 ---
 
 <p align="center">
   <strong>Built by the <a href="https://oliwoods.ai">OliWoods Foundation</a></strong><br>
-  <em>Free forever. Open source. Because this problem is too important to privatize.</em>
+  <em>Free forever. Open source. Because 1 in 5 people deserve tools that work the way they think.</em>
 </p>
